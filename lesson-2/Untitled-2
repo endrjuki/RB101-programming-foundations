@@ -1,0 +1,11 @@
+# Better Integer Validation
+
+def valid?(num)
+  num.to_i.to_s == num
+end
+
+# Number Validation
+
+def number?(num)
+  Float(num) rescue false
+end

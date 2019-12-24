@@ -1,0 +1,12 @@
+prompt_for_amount: "\n=> Please enter the loan amount."
+prompt_for_apr: "\n=> Please enter APR in numbers(5 is 5%, 10 is 10% etc)"
+prompt_for_duration: "\n=> Please enter loan duration in years"
+prompt_for_new_calc: "\n=> Would you like to perform another calculation?\n=> (input 'yes' or 'no')"
+invalid_amount: "=> Invalid input!\n=> Please enter an integer that is greater than zero."
+invalid_apr: "=> Invalid input!\n=> Please enter a number greater than 0."
+invalid_duration: "=> Invalid input!\n=> Please enter an integer greater than 0."
+invalid_new_calc: "=> Invalid input!\n=> Please enter 'yes' or 'no'."
+monthly_payment: "=> Your monthly payment is "
+thanks_exit: "\n=> Thank you for using this calculator."
+
+
