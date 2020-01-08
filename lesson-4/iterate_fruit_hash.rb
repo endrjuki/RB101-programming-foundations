@@ -4,6 +4,9 @@ def select_fruit(hsh)
   keys = hsh.keys # => ['apple', 'carrot', 'pear', 'brocolli']
 
   loop do
+
+    break if counter == hsh.size # this has to be on top incase hsh is empty hash
+
     current_produce = keys[counter]
     current_type = hsh[current_produce]
 
@@ -12,7 +15,6 @@ def select_fruit(hsh)
     end
 
     counter += 1
-    break if counter == hsh.size
   end
   results
 end

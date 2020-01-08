@@ -1,4 +1,4 @@
-def count_chars(str, char)
+def select_chars(str, char)
   result = ''
   count = 0
 
@@ -10,3 +10,7 @@ def count_chars(str, char)
   end
   result
 end
+
+select_chars(question, 'a').size # => 8
+select_chars(question, 't').size # => 5
+select_chars(question, 'z').size # => 0
