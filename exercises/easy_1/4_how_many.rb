@@ -29,7 +29,7 @@ def how_many(arr)
   results = {}
 
   arr.each do |outer|
-    results[outer] = 0
+    results[outer] = 0 # had to initialize values and set them to 0, otherwise on `line 35` get an exception "undefined method for Nil class: +"
 
     arr.each do |inner|
       results[outer] += 1 if outer == inner
