@@ -31,39 +31,57 @@ century(11201) == '113th'
 
 # Algorithm
 # retrieve input 'year' from user
-# divide year by 100 and plus 1 to find `century_number`
+#
+# find century number
+#  -if year % 100 is 0
+#   -return year / 100
+#  -if year % 100 is bigger than 0
+#   -return year / 100 + 1
+#
+# find century suffix
 # if `century_number` is between 11..13, century_number + 'th'
 # find the last digit of `century_number`
 # if `century_number` % 10 is:
-#   - 1 then `century_number` + 'st'
-#   - 2 then `century_number` + 'nd'
-#   - 3 then `century_number` + 'rd'
-#   - 4 then `century_number` + 'th'
+#  - 1 then `century_number` + 'st'
+#  - 2 then `century_number` + 'nd'
+#  - 3 then `century_number` + 'rd'
+#  - 4 then `century_number` + 'th'
 
-def century(num)
-  century_num = num / 100 + 1
-  answer = ''
+def century_suffix(century)
 
-  if num % 100 == 0
-    century_num -= 1
+  # handling the situation when last digits are 11..13
+  last_digits = century.to_s[-2, 2].to_i
+  if (11..13).include?(last_digits)
+    return 'th'
   end
 
-  if (11..13).include?(century_num)
-    answer << (num.to_s + 'th')
-    return answer
+  last_digit = century.to_s[-1].to_i
+
+  case last_digit
+  when 0
+    'th'
+  when 1
+    'st'
+  when 2
+    'nd'
+  when 3
+    'rd'
+  when 4..9
+    'th'
   end
-
-  last_digit = century_num % 10
-  century_num = century_num.to_s
-
-  century_num << case last_digit
-                when 1
-                  'st'
-                when 2
-                  'nd'
-                when 3
-                  'rd'
-                else
-                  'th'
-    end
 end
+
+def century(year)
+  if year % 100 == 0
+    century = year / 100
+  else year % 100 > 0
+    century = year / 100 + 1
+  end
+  century = century.to_s + century_suffix(century)
+end
+
+
+
+
+  
+
