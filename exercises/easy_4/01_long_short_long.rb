@@ -9,6 +9,8 @@
 # - assign the longest to variable `long`, other to `short`
 # - concat in pattern short-long-short
 
+
+
 def short_long_short(first, second)
   if first.size > second.size
     second + first + second
