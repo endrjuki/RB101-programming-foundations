@@ -25,10 +25,9 @@ multisum(5) == 8
 multisum(10) == 33
 multisum(1000) == 234168
 
-#using inject/reduce
+# using inject/reduce
 
 def multisum(num)
-  (1..num).reduce do |sum, n|
-    sum + n if (n % 3 == 0 || n % 5 == 0)
-  end
+  (1..num).select {|n| num % 3 == 0 || num % 5 == 0}.reduce(:+)
 end
+
