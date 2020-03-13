@@ -26,6 +26,8 @@ end
 def remove_vowels(array_of_strings)
   array_of_strings.map {|string| string.delete('aeiouAEIOU')}
 end
+abracadabra
+abba
 
 
 
