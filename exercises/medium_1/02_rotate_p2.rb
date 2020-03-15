@@ -3,11 +3,21 @@
 # You may use the rotate_array method from the previous exercise if you want. (Recommended!)
 # You may assume that n is always a positive integer.
 
+# Input
+# - Integer
+#   - number
+# - Integer
+#   - represents amount of rightmost digits
+# - Output
+#   - Integer
+
 # Algorithm
-# - determine index range of right side of the array
-#   - -n..-1
-# - determine index range of left side of array
-# - 0..
+# - convert the integer  number input into string
+# - initialize a variable to character array of that string
+# - reassign -n..-1 elements of that array to return value of rotate_array[-n..-1]
+# - join the array into string
+# - convert string into integer
+
 partition?
 def rotate_array(arr)
   arr[1..-1] + [arr[0]]
@@ -27,6 +37,18 @@ rotate_rightmost_digits(735291, 3) == 735912
 rotate_rightmost_digits(735291, 4) == 732915
 rotate_rightmost_digits(735291, 5) == 752913
 rotate_rightmost_digits(735291, 6) == 352917
+
+# Revisiting this problem
+
+def rotate_rightmost_digits(number, n)
+  return number if n == 1
+
+  digits = number.to_s.chars
+  left_side = digits[0, (digits.length - n)]
+  right_side = digits[-n..-1]
+
+  (left_side + rotate_array(right_side)).join.to_i
+end
 
 # ls method
 def rotate_rightmost_digits(number, n)
