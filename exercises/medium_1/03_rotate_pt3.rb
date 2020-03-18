@@ -53,3 +53,10 @@ def max_rotation(number)
   end
   number
 end
+
+# tiny refactor to ls method
+def max_rotation(number)
+  number_length = number.to_s.length
+  number_length.downto(2) { |n| number = rotate_rightmost(number, n) }
+  number
+end
