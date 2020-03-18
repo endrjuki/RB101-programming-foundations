@@ -32,6 +32,13 @@ def max_rotation(number)
   new_number
 end
 
+# Revisiting this problem
+def max_rotation(number)
+  number_length = number.to_s.length
+  number_length.times { |time| number = rotate_rightmost_digits(number, number_length - time)}
+  number
+end
+
 max_rotation(735291) == 321579
 max_rotation(3) == 3
 max_rotation(35) == 53
