@@ -95,3 +95,24 @@ def toggle_lights(number_of_lights)
 
   on_lights(lights)
 end
+
+# revisiting this exercise
+def initialize_lights(n)
+  lights = Hash.new
+  1.upto(n) {|number| lights[number] = true}
+  lights
+end
+
+def on_lights(light_hash)
+  light_hash.select { |idx, light| light == true}.keys
+end
+
+def toggle_lights(n)
+  lights = initialize_lights(n)
+
+  2.upto(n) do |pass|
+    lights.each { |idx, state| lights[idx] = !state if idx % pass == 0 }
+  end
+
+  on_lights(lights)
+end
