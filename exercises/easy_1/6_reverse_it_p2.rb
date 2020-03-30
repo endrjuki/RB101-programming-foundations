@@ -21,6 +21,7 @@
 #    -if current word has > 4 characters, keep the word as is.
 #  -join the array of words into a string with one space between each word
 
+
 def reverse_words(str)
   result = str.split.map do |word|
     word.reverse! if word.size >= 5
@@ -29,15 +30,12 @@ def reverse_words(str)
   result.join(' ')
 end
 
-
-
-
+# refactor
+def reverse_words(str)
+  str.split.map { |word| word.size >= 5 ? word.reverse : word }.join(' ')
+end
 
 # Examples/Test Cases:
 puts reverse_words('Professional')          # => lanoisseforP
 puts reverse_words('Walk around the block') # => Walk dnuora the kcolb
 puts reverse_words('Launch School')         # => hcnuaL loohcS
-
-
-
-

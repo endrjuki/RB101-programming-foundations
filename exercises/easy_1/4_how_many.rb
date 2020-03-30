@@ -10,12 +10,11 @@
 #  -string contains current element and its occurance, divided by `=>` and space either side of it.
 
 # Algorithm:
-#  -initialize an empty hash called `results`
-#  -iterate through array with `each` and set the current variable to `outer`
-#    -iterate through the array with `each` and set the variable to `inner`
-#      -within this iteration compare inner with outer
-#      -if the inner/outer matches, increment/initialize it by 1 within the hash
-#  -iterate over `results` hash and print out key and value as per requirements
+# - initialize a hash with default value 0
+# - iterate through array
+#   - add each element as a key to the hash and increment correspodning value
+#     by 1
+# - output the contents of hash
 
 # Test Cases:
 # count_occurrences(vehicles)
@@ -25,64 +24,8 @@
 # SUV => 1
 # motorcycle => 2
 
-def how_many(arr)
-  results = {}
-
-  arr.each do |outer|
-    results[outer] = 0 # had to initialize values and set them to 0, otherwise on `line 35` get an exception "undefined method for Nil class: +"
-
-    arr.each do |inner|
-      results[outer] += 1 if outer == inner
-    end
-  end
-
-  results.each do |key, value|
-    puts "#{key} => #{value}"
-  end
-end
-
-# ls way
 def count_occurances(arr)
-  occurances = {}
-
-  arr.uniq.each do |element|
-    occurances[element] = arr.count(element)
-  end
-
-  occurances.each do |key, value|
-    puts "#{key} => #{value}"
-  end
-
+  occurances = Hash.new(0)
+  arr.each { |element| occurances[element] += 1 }
+  occurances.each { |k, v| puts "#{k} => #{v}"}
 end
-
-# further exploration - case insensitive
-
-def count_occurances2(arr)
-  occurances = {}
-  arr = arr.map {|element| element.downcase}
-
-  arr.uniq.each do |element|
-    occurances[element] = arr.count(element)
-  end
-
-  occurances.each do |key, value|
-    puts "#{key} => #{value}"
-  end
-end
-
-vehicles_further = [
-  'car', 'car', 'truck', 'car', 'SUV', 'truck',
-  'motorcycle', 'motorcycle', 'car', 'truck'
-]
-
-vehicles_further = [
-  'car', 'car', 'suv', 'suv', 'truck', 'car', 'SUV', 'truck',
-  'motorcycle', 'motorcycle', 'car', 'truck'
-]
-
-count_occurrences(vehicles)
-
-car => 4
-truck => 3
-SUV => 1
-motorcycle => 2
