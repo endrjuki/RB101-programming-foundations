@@ -2,36 +2,33 @@
 # a string and a positive integer,
 # and prints the string as many times as the integer indicates.
 
-# Input: string
-# Output: print string as many times as integer indicates
-# Rules:
-#   Explicit requirements:
-#     -method must take two arguments: a string and a POSITIVE integer
-#     -method must print the string as many times as the integer indicates
+# Input
+# - string
+# Output
+# - string
 
-#   Implicit requirements: ????????????????????//
-
-# Test cases:
-# repeat('Hello', 3) =>
-# Hello
-# Hello
-# Hello
-
-# Questions:
-# can we assume that inputs are valid?
-
-def print_times(str, integer)
-  integer.times {puts str}
+# How I would do it now
+def repeat(str, int)
+  int.times { puts str }
 end
 
-def print_times_2(str, integer)
-  counter = integer
+# with a while loop
+def repeat(str, int)
+  counter = 0
 
-  loop do
-    break if counter == 0
+  while counter != int
     puts str
-    counter -= 1
+    counter += 1
   end
 end
 
-    
+# with loop do..end
+def repeat(str, int)
+  counter = 0
+
+  loop do
+    puts str
+    counter += 1
+    break if counter == int
+  end
+end
