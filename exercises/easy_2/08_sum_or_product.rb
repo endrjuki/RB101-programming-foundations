@@ -39,24 +39,18 @@
 #     -iterate through number range
 #       -multiply all the integers and return value
 
-puts ">> Please enter an integer greater than 0:"
+# refactor
+puts "Please enter an integer greater than 0"
 number = gets.chomp.to_i
 
-puts ">> Enter 's' to compute the sum, 'p' to compute the product."
+puts "Enter 's' to compute sum, 'p' to compute the product"
 operation = gets.chomp
 
 case operation
 when 's'
-  result = Array(1..number).reduce do |sum, number|
-    sum + number
-  end
-  puts "The sum of the integers between 1 and #{number} is #{result}"
-
+  result = (1..number).reduce(:+)
+  puts "The sum of integers between 1 and #{number} is #{result}"
 when 'p'
-  result = Array(1..number).reduce do |product, number|
-    product * number
-  end
-  puts "the product of the integers between 1 and #{number} is #{result}"
+  result = (1..number).reduce(:*)
+    puts "The product of integers between 1 and #{number} is #{result}"
 end
-
-
