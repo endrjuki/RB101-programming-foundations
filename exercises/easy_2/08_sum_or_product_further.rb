@@ -67,9 +67,16 @@ def retrieve_input(input_type)
   loop do
     input = gets.chomp
     break if valid_input?(input, input_type)
-    puts "Invalid input, please try again."
+    display_error(input_type)
   end
   input
+end
+
+def display_error(input_type)
+  case input_type
+  when 'integer' then puts "Invalid number, please enter an integer larger than 0"
+  when 'operation' then puts "Invalid operation, please enter 's' for sum or 'p' for product"
+  end
 end
 
 puts "Please enter an integer greater than 0"
