@@ -39,32 +39,26 @@
 #     -iterate through number range
 #       -multiply all the integers and return value
 
-def valid_operation?(str)
-  %w(s p).include?(str)
-end
-
-def valid_integer?(int)
-  int.to_i.to_s == int && int.to_i >= 1
-end
-
 def compute_sum(number)
-  (1..number).reduce do |sum, number|
-    sum + number
-  end
+  (1..number).reduce(:+)
 end
 
 def compute_product(number)
-  (1..number).reduce do |product, number|
-    product * number
-  end
+  (1..number).reduce(:*)
+end
+
+def valid_operation?(input)
+  %w(s p).include?(input.downcase)
+end
+
+def valid_integer?(input)
+  Integer(input) rescue false
 end
 
 def valid_input?(input, input_type)
   case input_type
-  when 'operation'
-    valid_operation?(input)
-  when 'number'
-    valid_integer?(input)
+  when 'operation' then valid_operation?(input)
+  when 'integer'   then valid_integer?(input)
   end
 end
 
@@ -73,25 +67,20 @@ def retrieve_input(input_type)
   loop do
     input = gets.chomp
     break if valid_input?(input, input_type)
-    puts "invalid input! please try again."
+    puts "Invalid input, please try again."
   end
   input
 end
 
+puts "Please enter an integer greater than 0"
+number = retrieve_input('integer')
 
-puts ">> Please enter an integer greater than 0:"
-number = retrieve_input('number')
-
-puts ">> Enter 's' to compute the sum, 'p' to compute the product."
+puts "Enter 's' to compute the sum, 'p' to compute the product."
 operation = retrieve_input('operation')
-
-number = number.to_i
 
 case operation
 when 's'
-  result = compute_sum(number)
-  puts "The sum of the integers between 1 and #{number} is #{result}"
+  puts "The sum of integers between 1 and #{number} is #{compute_sum(number.to_i)}"
 when 'p'
-  result = compute_product(number)
-  puts "the product of the integers between 1 and #{number} is #{result}"
+  puts "The product of integers between 1 and #{number} is #{compute_product(number.to_i)}"
 end
