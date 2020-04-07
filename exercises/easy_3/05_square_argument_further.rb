@@ -22,6 +22,8 @@ end
 def power(n, power)
   multiply(n, n**(power-1))
 end
+2, 4
+2 * 2**3
 
 
 # Jason Lybrands solution

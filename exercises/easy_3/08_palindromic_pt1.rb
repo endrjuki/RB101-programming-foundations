@@ -6,5 +6,5 @@
 # you wrote in the previous exercise.
 
 def palindrome?(string)
-  string.downcase == string.downcase.reverse
+  string.gsub(/[^0-9a-z]/i, '')
 end
