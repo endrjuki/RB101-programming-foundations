@@ -55,7 +55,7 @@
 #     -append it to an array
 #   -retrieve input from user: last number
 #   -check if array includes last number
-#   
+#
 
 number_array = []
 
@@ -81,4 +81,29 @@ if number_array.include?(last_number)
   puts "The number #{last_number} appears in #{number_array}."
 else
   puts "The number #{last_number} does not appear #{number_array}."
+end
+
+# refactor
+numbers = []
+
+5.times do |t|
+  case t
+  when 0 then idx = '1st'
+  when 1 then idx = '2nd'
+  when 2 then idx = '3rd'
+  when 3 then idx = '4th'
+  when 4 then idx = '5th'
+  end
+
+  puts "Please enter #{idx} number"
+  numbers << gets.to_i
+end
+
+puts "Please enter the last number"
+last_nr = gets.to_i
+
+if numbers.include?(last_nr)
+  puts "The number #{last_nr} appears in #{numbers}]"
+else
+  puts "The number #{last_nr} doesn't appear in #{numbers}"
 end
