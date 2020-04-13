@@ -22,5 +22,6 @@ puts array2
 
 array1 = %w(Moe Larry Curly Shemp Harpo Chico Groucho Zeppo)
 array2 = array1.map do |value|
-  value.start_with?('C', 'S') ? value.upcase : value
+  value.start_with?('C', 'S') ? value.upcase : value.capitalize
 end
+

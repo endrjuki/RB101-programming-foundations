@@ -55,3 +55,8 @@ end
 def running_total(arr)
     arr.inject([]) {|acc, val| acc << val + (acc.last || 0)} # if acc.last evals truthy, it short-circuits
 end
+
+# refactor
+def running_total(arr)
+  arr.map.with_index {|element, idx| arr[0..idx].inject(:+)}
+end

@@ -35,6 +35,12 @@ def string_to_integer(string)
   digits.each { |digit| value = 10 * value + digit}
 end
 
-
-36
-36
+# revisiting this exercise
+CHAR_TO_DIGIT =     {'1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5,
+                     '6' => 6, '7' => 7, '8' => 8, '9' => 9}
+BASE = 10
+def string_to_integer(string)  
+  result = 0
+  string.reverse.chars.each_with_index {|digit, idx| result += CHAR_TO_DIGIT[digit] * (BASE ** idx) }
+  result 
+end

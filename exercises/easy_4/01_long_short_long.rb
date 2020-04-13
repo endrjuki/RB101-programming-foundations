@@ -19,6 +19,11 @@ def short_long_short(first, second)
   end
 end
 
+# refactor
+def short_long_short(str1, str2)
+  str1.size > str2.size ? str2 + str1 + str2 : str1 + str2 + str1
+end
+
 # Test Cases
 short_long_short('abc', 'defgh') == "abcdefghabc"
 short_long_short('abcde', 'fgh') == "fghabcdefgh"
@@ -29,6 +34,8 @@ def short_long_short(string1, string2)
   arr = [string1, string2].sort_by { |el| el.length }
   arr.first + arr.last + arr.first
 end
+
+
 
 
 
