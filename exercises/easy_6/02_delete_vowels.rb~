@@ -26,13 +26,9 @@ end
 def remove_vowels(array_of_strings)
   array_of_strings.map {|string| string.delete('aeiouAEIOU')}
 end
+abracadabra
+abba
 
-# another way
-def remove_vowels(array)
-  array.map do |string|
-    string.chars.map { |char| VOWELS.include?(char.downcase) ? '' : char}.join('')
-  end
-end
 
 
 remove_vowels(%w(abcdefghijklmnopqrstuvwxyz)) == %w(bcdfghjklmnpqrstvwxyz)
