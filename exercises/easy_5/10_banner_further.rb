@@ -125,3 +125,73 @@ print_in_box('')
 |  |
 |  |
 +--+
+
+# Revisiting this exercise
+
+# Input
+# - string
+# - always fits in terminal window = 67 chars
+
+# Output
+# - multiple strings
+#   - forms a box with input text in the middle
+
+# Algorithm
+# Split string into lines based on character count
+# - split string into words by using space as delimiter
+# - iterate through words array
+#   - add word to a different array that represents lines if the max length of line is less that 67
+#   - if it exceed the max_text_length limit
+#     - add the line to a resuliting array
+#     - clear the line array and start building it up again
+
+# Render text lines
+# - determine the longest text line and save the length value
+# - iterate through text_lines
+# - output the text and append empty space after the text based on the difference
+#   between current and longest string in the text_lines
+
+
+PADDING = 5
+MAX_TEXT_LENGTH = 73 - PADDING * 2
+
+def text_lines(text)
+  text_lines = []
+  text_line = []
+  text.split.each do |word|
+    if (text_line.join(' ').length + word.length) < MAX_TEXT_LENGTH
+      text_line << word
+    else
+      text_lines << text_line.join(' ')
+      text_line = []
+      text_line << word
+    end
+    
+  end
+  text_lines
+end
+
+def render_top_bottom(string_length)
+  puts "+" + ("-" * (string_length + PADDING*2)) + "+"
+end
+
+def render_blank_line(string_length)
+  puts "|" + " " * (string_length + PADDING*2) + "|"
+end
+
+def render_text(lines, length)
+  lines.each do |line|
+    delta_length = (length - line.length).abs
+    puts "|" + (" " * PADDING) + ("#{line}") + (" " * delta_length) + (" " *PADDING)  + "|"
+  end
+end
+
+def text_in_box(string)
+  lines = text_lines(string)
+  length = lines.max {|a, b| a.length <=> b.length}.length rescue length = 0
+  render_top_bottom(length)
+  render_blank_line(length)
+  render_text(lines, length)
+  render_blank_line(length)
+  render_top_bottom(length)
+end

@@ -55,3 +55,25 @@ word_sizes('Four score and seven.') == { 3 => 1, 4 => 1, 5 => 1, 6 => 1 }
 word_sizes('Hey diddle diddle, the cat and the fiddle!') == { 3 => 5, 6 => 1, 7 => 2 }
 word_sizes("What's up doc?") == { 6 => 1, 2 => 1, 4 => 1 }
 word_sizes('') == {}
+
+# revisiting this exercise
+# Input
+# - string
+#   - contains one or more words seperated by a space
+
+# Output
+# - hash
+#   - key represents individual word size
+#   - value represents the number of occurances of word with certain size
+
+# Mental model
+# - split the string into word array
+# - iterate over the words
+#   - add the word length as a key
+#   - increment the value for this key by 1
+
+def word_sizes(string)
+  word_count = Hash.new(0)
+  string.split.each { |word| word_count[word.length] += 1 }
+  word_count  
+end

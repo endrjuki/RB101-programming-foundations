@@ -13,7 +13,7 @@ SECONDS_IN_MINUTE = 60
 def time_of_day(delta_minutes)
   t = Time.new(2020, 01, 19)
   t = t + delta_minutes * SECONDS_IN_MINUTE
-  t.strftime("%A %H:%M")
+  t.strftime("%A, %H:%M")
 end
 
 # this solves p1 problem

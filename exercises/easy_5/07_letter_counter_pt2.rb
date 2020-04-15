@@ -34,3 +34,11 @@ word_sizes('Four score and seven.') == { 3 => 1, 4 => 1, 5 => 1, 6 => 1 }
 word_sizes('Hey diddle diddle, the cat and the fiddle!') == { 3 => 5, 6 => 1, 7 => 2 }
 word_sizes("What's up doc?") == { 6 => 1, 2 => 1, 4 => 1 }
 word_sizes('') == {}
+
+# Revisiting this exercise
+
+def word_sizes(string)
+  word_count = Hash.new(0)
+  string.split.each { |word| word_count[word.count('a-zA-Z0-9')] += 1 }
+  word_count  
+end

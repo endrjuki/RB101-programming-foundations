@@ -40,3 +40,17 @@ NUMBER_WORDS = %w(zero one two three four
 def alphabetic_number_sort(numbers)
   numbers.sort_by { |number| NUMBER_WORDS[number] }
 end
+
+# Revisiting this exercise
+INTEGER_TO_WORD = {
+                  0=>"zero", 1=>"one", 2=>"two", 3=>"three",
+                  4=>"four", 5=>"five", 6=>"six", 7=>"seven",
+                  8=>"eight", 9=>"nine", 10=>"ten", 11=>"eleven",
+                  12=>"twelve", 13=>"thirteen", 14=>"fourteen", 15=>"fifteen",
+                  16=>"sixteen", 17=>"seventeen", 18=>"eighteen", 19=>"nineteen"
+                  }
+
+def alphabetic_number_sort(arr)
+  arr = arr.map { |number| INTEGER_TO_WORD[number]}.sort
+  arr.map { |word| INTEGER_TO_WORD.key(word) }
+end

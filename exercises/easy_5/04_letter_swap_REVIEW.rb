@@ -53,6 +53,15 @@ def swap(str)
   arr.join (' ')
 end
 
+# refactor
+def swap(str)
+  str.split.map do |word|
+    word[0], word[-1] = word[-1], word[0]
+    word
+  end
+  .join(' ')
+end
+
  LS way
 
 def swap_first_last_characters(word)
