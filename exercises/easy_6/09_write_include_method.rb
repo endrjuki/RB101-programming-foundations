@@ -38,6 +38,7 @@ def include?(array, value)
   !!array.find_index(value) #!! turns any value into boolean object; find_index returns index of the first object that matches the value
 end                           # returns nil if the value is not present
 
+# revisiting this exercise
 def include?(array, value)
   array.each {|element| return true if element == value}
   false

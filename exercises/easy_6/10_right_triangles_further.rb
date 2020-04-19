@@ -65,3 +65,47 @@ def triangle(n, orientation)
   end
 
 end
+
+# Revisiting this problem
+def triangle(n, position)
+  n.times do |line|
+    
+    case position
+    when 'br' then location = line + 1
+    when 'bl' then location = line + 1
+    when 'tr' then location = 5 - line
+    when 'tl' then location = 5 - line
+    end
+
+    number_of_stars = location
+    number_of_whitespace = n - location
+
+    case position
+    when 'br' then puts " " * number_of_whitespace + "*" * number_of_stars
+    when 'bl' then puts "*" * number_of_stars + " " * number_of_whitespace
+    when 'tr' then puts " " * number_of_whitespace + "*" * number_of_stars
+    when 'tl' then puts "*" * number_of_stars + " " * number_of_whitespace
+    end
+  end
+end
+
+# further refactor
+def triangle(n, position)
+  result = []
+  n.times do |line|
+    
+    case position
+    when 'br', 'bl' then location = line + 1    
+    when 'tr', 'tl' then location = 5 - line  
+    end
+
+    number_of_stars = location
+    number_of_whitespace = n - location
+    
+    case position
+    when 'tr', 'br' then puts " " * number_of_whitespace + "*" * number_of_stars
+    when 'bl', 'tl' then puts "*" * number_of_stars
+    end
+    
+  end  
+end
