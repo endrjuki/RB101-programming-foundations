@@ -46,8 +46,26 @@ def find_fibonacci_index_by_length(number_of_digits)
   counter
 end
 
+# revisiting the exercise
+# counter = 2
+# n1 = 1
+# n2 = 1
+# n2 += n1      =2
+# counter = 3
+# n1 = 1
+# n2 = 2
+# n2, n1 = (n1+n2), n2
 
-
+def fibonacci(n)
+  n1 = 1
+  n2 = 1
+  counter = 2
+  loop do
+    n2, n1 = (n1 + n2), n2
+    counter += 1
+    return counter if n2.to_s.length == n
+  end
+end
 
 
 find_fibonacci_index_by_length(2) == 7          # 1 1 2 3 5 8 13

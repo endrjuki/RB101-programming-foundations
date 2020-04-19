@@ -42,27 +42,6 @@ def find_dup(array)
   array.find {|element| array.count(element) == 2} # find returns element for which the block evaluates to true
 end
 
-# another crack at it
-
-# Algorithm
-# - iterate through array (1st loop)
-#   - initialize a counter variable
-#   - iterate through the array (2nd loop)
-#     - compare the current element of the 1st loop to the current element of the current loop
-#     - increment counter if they are the same
-#     - return current element if counter == 2
-
-def find_dup(arr)
-  arr.each do |current_element|
-    counter = 0
-    arr.each do |element|
-      counter += 1 if current_element == element
-      return element if counter == 2
-    end
-  end
-end
-
-
 find_dup([1, 5, 3, 1]) == 1
 find_dup([18,  9, 36, 96, 31, 19, 54, 75, 42, 15,
           38, 25, 97, 92, 46, 69, 91, 59, 53, 27,
