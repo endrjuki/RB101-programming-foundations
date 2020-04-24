@@ -51,3 +51,31 @@ palindromes('hello-madam-did-madam-goodbye') == [
 palindromes('knitting cassettes') == [
   'nittin', 'itti', 'tt', 'ss', 'settes', 'ette', 'tt'
 ]
+
+
+# another attempt at this exercise
+def substrings_at_start(string)
+  result = []
+  string.chars.each_with_index { |char, idx| result << string[0..idx] }
+
+  result
+end
+
+def substrings(string)
+  result = []  
+  0.upto(string.length - 1) do |idx|
+    result << substrings_at_start(string[idx..-1])
+  end 
+   
+  result.flatten.sort
+end
+
+def is_palindrome?(str)
+  return false if str.length == 1
+  str.reverse == str
+end
+
+def palindromes(string)
+  substrings = substrings(string)
+  substrings.select { |string| is_palindrome?(string) }
+end

@@ -34,3 +34,16 @@ def staggered_case(string, need_upper = true)
   end
   result
 end
+
+# revisiting this exercise
+def staggered_case(string, needs_upper=true)
+  result = ''
+
+  string.chars.each do |char|
+    result << char.upcase if needs_upper
+    result << char.downcase if !needs_upper
+    needs_upper = !needs_upper
+  end
+
+  result
+end

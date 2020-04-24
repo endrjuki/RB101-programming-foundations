@@ -47,7 +47,27 @@ def staggered_case(str, count_only_alpha=true)
   result
 end
 
+# Modify this method so the caller can determine whether non-alphabetic characters
+# should be counted when determining the upper/lowercase state.
+# That is, you want a method that can perform the same actions that this method does,
+# or operates like the previous version.
 
+def staggered_case(string, count_only_alpha=true)
+  result = ''
+  needs_upper = true
+
+  string.chars.each do |char|
+    result << char.upcase if needs_upper
+    result << char.downcase if !needs_upper
+    
+    case count_only_alpha
+    when false then needs_upper = !needs_upper      
+    when true  then needs_upper = !needs_upper if char =~ /[a-z]/i
+    end
+  end
+
+  result
+end
 
 staggered_case('I Love Launch School!') == 'I lOvE lAuNcH sChOoL!'
 staggered_case('ALL CAPS') == 'AlL cApS'

@@ -40,3 +40,11 @@ def substrings_at_start(string)
   end
   result
 end
+
+# revisiting this exercise
+def substrings_at_start(string)
+  result = []
+  string.chars.each_with_index { |char, idx| result << string[0..idx] }
+
+  result
+end
