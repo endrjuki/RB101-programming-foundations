@@ -25,8 +25,3 @@ end
 def negative(number)
   -number.abs # abs returns absolute value and - prepends minus sign pretty much,
 end           # there is no such a thing as -+0 in Ruby so it works out fine.
-
-# revisiting this exercise
-def negative(num)
-  num.positive? ? num * (-1) : num
-end
