@@ -34,18 +34,6 @@ def twice(number)
   end
 end
 
-# added cleaner solution
-def is_double?(num)
-  num = num.to_s
-  return false if num.length.odd?  
-  middle_index = num.length / 2
-  num[0..middle_index - 1] == num[middle_index..-1]
-end
-
-def twice(num)
-  is_double?(num) ? num : num * 2
-end
-
 twice(37) == 74
 twice(44) == 44
 twice(334433) == 668866
