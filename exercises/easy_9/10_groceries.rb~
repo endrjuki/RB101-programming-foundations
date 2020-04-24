@@ -45,10 +45,3 @@ end
 def buy_fruit(list)
   list.map { |fruit, quantity| [fruit] * quantity}.flatten
 end
-
-# revisiting this exerise
-def buy_fruit(arr)
-  arr.each_with_object([]) do |(fruit, qty), result|
-    qty.times { result << fruit }
-  end
-end

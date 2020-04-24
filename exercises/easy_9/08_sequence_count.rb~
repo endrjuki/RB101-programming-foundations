@@ -51,11 +51,3 @@ end
 def sequence(count, first)
   (1..count).map {|value| value * first}
 end
-
-# Revisiting this exercise
-def sequence(count, seq)
-  result = []
-  accum = 0
-  count.times { result << accum += seq  }
-  result
-end
