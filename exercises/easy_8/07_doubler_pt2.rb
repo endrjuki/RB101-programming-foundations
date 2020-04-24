@@ -33,3 +33,8 @@ def double_consonants(string)
   end
   result
 end
+
+# one-liner
+def double_consonants(string)
+  string.chars.map { |char| CONSONANTS.include?(char.upcase) ? char * 2 : char }.join
+end
