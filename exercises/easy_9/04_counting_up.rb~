@@ -28,16 +28,3 @@ def sequence(number)
   else
     Array(1..number)
 end
-
-# revisiting this exercise
-def sequence(num)
-  result = []
-  
-  if num.positive?
-    1.upto(num) { |n| result << n }
-  else
-    1.downto(num) { |n| result << n }
-  end
-  
-  result
-end
